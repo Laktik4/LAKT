@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generátor kódu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="rotating-square"></div> <!-- Вращающийся квадрат -->
+    <div class="container">
+        <h1>Generátor kódu</h1>
+        <button id="generateBtn"><i class="fas fa-code"></i> Generovat kód</button>
+        <div style="background-color: #f9e79f; padding: 20px; border-radius: 10px; text-align: center;">
+    <p style="font-size: 20px; font-weight: bold;">Napište mi tento kód do zprávy a získáte 10% slevu!</p>
+</div>
+        <button id="copyBtn" style="display: none;"><i class="fas fa-copy"></i> Kopírovat kód</button>
+        <p id="codeOutput"></p>
+        
+        <div class="social-links">
+   <a href="https://www.instagram.com/llakt4" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+   <a href="https://www.bazos.cz/hodnoceni.php?idmail=7751977&idphone=5677665&jmeno=Bohdan" target="_blank"><i class="fas fa-link"></i> Bazos.cz</a>
+   <a href="https://www.vinted.cz/member/193832784-laktio" target="_blank"><i class="fab fa-vinted"></i>Recenze na Vinted</a>
+   <a href="https://www.vinted.cz/member/269273151" target="_blank"><i class="fab fa-vinted"></i>Vinted Obchod</a>
+</div>
+<div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
+    <p>✨ Ahoj!
+Můj předchozí účet byl bohužel ❌ zablokován kvůli podezření na komerční prodej – prodával jsem více nových věcí 🛍️. 
+Vinted to vyhodnotil jako porušení pravidel 📋.
+Nejsem obchodník, jen jsem chtěl poslat dál pár nových kousků ze své sbírky 👕👟.
+Díky za pochopení a podporu! 🙏🙂</p>
+</div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Дополнительная информация</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
