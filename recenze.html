@@ -14,50 +14,29 @@
     <h1 class="reviews-title">Recenze zákazníků</h1>
     <p class="reviews-subtitle">Důvěra a spokojenost mých zákazníků</p>
 
-    <div class="reviews-grid">
+    <div class="reviews-grid" id="gallery">
 
-    <!-- ГЛАВНОЕ ФОТО -->
-    <div class="review-item main-review">
-        <img src="images/review12.jpg">
+        <!-- Главная фотография -->
+        <div class="review-item main-review">
+            <img src="images/review12.jpg">
+        </div>
+
+        <!-- Остальные фото будут подгружены через JS -->
+
     </div>
-
-    <!-- Остальные -->
-    <div class="review-item"><img src="images/review1.jpg"></div>
-    <div class="review-item"><img src="images/review2.jpg"></div>
-    <div class="review-item"><img src="images/review3.jpg"></div>
-    <div class="review-item"><img src="images/review4.jpg"></div>
-    <div class="review-item"><img src="images/review5.jpg"></div>
-    <div class="review-item"><img src="images/review6.jpg"></div>
-    <div class="review-item"><img src="images/review7.jpg"></div>
-    <div class="review-item"><img src="images/review8.jpg"></div>
-    <div class="review-item"><img src="images/review9.jpg"></div>
-    <div class="review-item"><img src="images/review10.jpg"></div>
-    <div class="review-item"><img src="images/review11.jpg"></div>
-    <div class="review-item"><img src="images/review13.jpg"></div>
-    <div class="review-item"><img src="images/review14.jpg"></div>
-    <div class="review-item"><img src="images/review15.jpg"></div>
-
-</div>
 
     <a href="index.html" class="back-button">← Zpět</a>
 
 </div>
 
 <!-- MODAL -->
-<div id="imageModal" class="image-modal" onclick="closeModal()">
+<div id="imageModal" class="image-modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
     <img id="modalImg">
+    <div class="nav prev" onclick="prevImage()">&#10094;</div>
+    <div class="nav next" onclick="nextImage()">&#10095;</div>
 </div>
 
-<script>
-function openModal(src) {
-    document.getElementById("imageModal").style.display = "flex";
-    document.getElementById("modalImg").src = src;
-}
-
-function closeModal() {
-    document.getElementById("imageModal").style.display = "none";
-}
-</script>
 <script src="script.js"></script>
 </body>
 </html>
