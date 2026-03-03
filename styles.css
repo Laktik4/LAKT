@@ -1,154 +1,303 @@
+/* ===== RESET ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-image: url('path/to/your/background-image.jpg'); /* Замените на путь к вашему изображению */
-    background-size: cover;
-    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1a1a1a 0%, #0b0b0b 60%);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    color: #fff;
 }
 
+/* ===== BACKGROUND GLOW ===== */
+
+.bg-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,140,0,0.6) 0%, rgba(255,140,0,0.15) 50%, transparent 75%);
+    filter: blur(100px);
+    animation: glowMove 8s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes glowMove {
+    from { transform: translateY(-40px); }
+    to { transform: translateY(40px); }
+}
+
+/* ===== MAIN CARD ===== */
+
 .container {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 25px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255,140,0,0.25);
+    box-shadow: 
+        0 0 40px rgba(255,140,0,0.15),
+        0 20px 50px rgba(0,0,0,0.6);
     text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 320px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s forwards;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #007bff;
-    transition: background-color 0.3s, transform 0.2s;
+/* ===== LOGO ===== */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.logo img {
+    width: 42vw;
+    max-width: 160px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 3px solid #ff8c00;
+    padding: 5px;
+
+    background: linear-gradient(45deg, #ff8c00, #ffb347);
+
+    box-shadow:
+        0 0 25px rgba(255,140,0,0.7),
+        0 0 60px rgba(255,165,0,0.3);
+
+    transition: 0.4s ease;
+}
+
+.logo img:hover {
     transform: scale(1.05);
 }
 
-p {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 15px;
+.logo img:active {
+    transform: scale(0.95);
 }
 
-.notification {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    color: white;
-    z-index: 1000;
-    opacity: 0.9;
+/* ===== TITLE ===== */
+
+.title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+
+    background: linear-gradient(45deg, #ff8c00, #ffb347, #ffd27a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 15px rgba(255,140,0,0.6);
 }
 
-.notification.success {
-    background-color: #28a745;
+/* ===== DESCRIPTION ===== */
+
+.description {
+    font-size: 15px;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
-.notification.error {
-    background-color: #dc3545;
+/* ===== DIVIDER ===== */
+
+.divider {
+    height: 1px;
+    margin: 25px 0;
+    background: linear-gradient(to right, transparent, #ff8c00, transparent);
+    opacity: 0.6;
 }
+
+/* ===== BUTTONS ===== */
 
 .social-links {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.social-links a {
-    display: inline-block;
-    margin: 5px;
+/* Основная кнопка */
+
+.btn {
+    padding: 15px;
+    border-radius: 14px;
     text-decoration: none;
-    color: #007bff;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: 0.3s ease;
+    background: linear-gradient(45deg, #ff8c00, #ffb347);
+    color: #111;
+    box-shadow: 0 6px 18px rgba(255,140,0,0.4);
 }
 
-.social-links a:hover {
-    text-decoration: underline;
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255,140,0,0.6);
 }
 
-.rotating-square {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #d2b48c;
-    animation: rotate 10s linear infinite;
-    z-index: -1;
+/* Secondary */
+
+.secondary {
+    background: #1c1c1c;
+    color: #ffb347;
+    border: 1px solid #ff8c00;
 }
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.secondary:hover {
+    background: #252525;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+/* Outline */
+
+.outline {
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+.outline:hover {
+    background: rgba(255,140,0,0.1);
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+/* ===== MOBILE TWEAKS ===== */
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 420px) {
     .container {
-        width: 90%;
+        padding: 35px 20px;
+        border-radius: 24px;
     }
-    button {
-        width: 100%;
+
+    .title {
+        font-size: 24px;
     }
+
+    .description {
+        font-size: 14px;
+    }
+}
+/* ===== REVIEWS GRID ===== */
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.review-item {
+    aspect-ratio: 1 / 1.2;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #111;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.review-item:hover {
+    transform: scale(1.03);
+}
+
+.review-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== FULLSCREEN MODAL ===== */
+
+.fullscreen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 20px;
+}
+
+.fullscreen img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+}
+/* ===== ГЛАВНОЕ ФОТО ===== */
+
+.main-review {
+    grid-column: 1 / -1; /* на всю ширину */
+    aspect-ratio: 1 / 1;
+    max-width: 320px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 10px 30px rgba(255,140,0,0.5);
+    border: 2px solid #ff8c00;
+}
+
+.main-review img {
+    object-fit: cover;
+}
+/* ===== PREMIUM BACK BUTTON ===== */
+
+.back-button {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin: 40px auto 0 auto;
+    padding: 16px 0;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    border-radius: 18px;
+    text-decoration: none;
+
+    background: linear-gradient(45deg, #ff8c00, #ffb347);
+    color: #111;
+
+    box-shadow:
+        0 8px 20px rgba(255,140,0,0.4),
+        0 0 25px rgba(255,140,0,0.3);
+
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 30px rgba(255,140,0,0.6),
+        0 0 40px rgba(255,140,0,0.4);
+}
+
+.back-button:active {
+    transform: scale(0.96);
 }
