@@ -1,48 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const generateBtn = document.getElementById("generateBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const codeOutput = document.getElementById("codeOutput");
-    const modal = document.getElementById("modal");
-    const closeModal = document.querySelector(".close");
 
-    generateBtn.addEventListener("click", function () {
-        const generatedCode = generateRandomCode(8); // Генерация 8-значного кода
-        codeOutput.innerText = generatedCode;
-        
-        generateBtn.style.display = "none"; // Скрываем кнопку генерации
-        copyBtn.style.display = "inline-block"; // Показываем кнопку копирования
-    });
+    const gallery = document.getElementById("gallery");
+    const totalImages = 15; // сколько фото
 
-    copyBtn.addEventListener("click", function () {
-        const codeText = codeOutput.innerText.trim();
-        if (codeText) {
-            navigator.clipboard.writeText(codeText)
-                .then(() => showNotification("Kód byl zkopírován do schránky!", "success"))
-                .catch(() => showNotification("Chyba při kopírování kódu!", "error"));
-        }
-    });
+    for (let i = 1; i <= totalImages; i++) {
 
-    closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
+        const div = document.createElement("div");
+        div.className = "review-item";
 
-    function generateRandomCode(length) {
-        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        let result = "";
-        for (let i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return result;
+        const img = document.createElement("img");
+        img.src = "images/review" + i + ".jpg";
+
+        img.addEventListener("click", function () {
+            openFullscreen(this.src);
+        });
+
+        div.appendChild(img);
+        gallery.appendChild(div);
     }
 
-    function showNotification(message, type) {
-        const notification = document.createElement("div");
-        notification.innerText = message;
-        notification.classList.add("notification", type);
-        document.body.appendChild(notification);
+    function openFullscreen(src) {
 
-        setTimeout(() => {
-            notification.remove(); // Удаляем уведомление через 3 секунды
-        }, 3000);
+        const overlay = document.createElement("div");
+        overlay.className = "fullscreen";
+
+        const image = document.createElement("img");
+        image.src = src;
+
+        overlay.appendChild(image);
+
+        overlay.addEventListener("click", function () {
+            document.body.removeChild(overlay);
+        });
+
+        document.body.appendChild(overlay);
     }
+
 });
